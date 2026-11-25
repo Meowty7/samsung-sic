@@ -6,7 +6,7 @@ Los usan los notebooks s05 y s06.
 """
 import pandas as pd
 
-from penonome import COMPARACION, PAQUETE
+from penonome import ANALISIS, PAQUETE
 
 # Paleta común de los gráficos del proyecto (azul, naranja, agua).
 AZUL, NARANJA, AGUA = "#2a78d6", "#eb6834", "#1baf7a"
@@ -17,18 +17,6 @@ MESES = (
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
 )
 
-# Réplicas acumuladas localizadas por el IGC-UP tras el sismo del 9-oct-2026, según la prensa
-# (los mismos puntos de datos/analisis/replicas_acumuladas.csv). Son datos de prensa, no una tabla oficial.
-REPLICAS = (
-    ("2026-10-10", 135, "Panamá América"),
-    ("2026-10-16", 746, "Infobae"),
-    ("2026-11-02", 1271, "La Estrella"),
-    ("2026-11-06", 1452, "Prensa Latina"),
-    ("2026-11-09", 1483, "Crítica"),
-    ("2026-11-17", 1656, "La Verdad"),
-)
-
-ORDEN_TRIMESTRES = ("abr-jun", "may-jul", "jun-ago", "jul-sep")
 CLAVE_LARGA = ("provincia", "distrito", "corregimiento", "indicador", "unidad")
 
 
@@ -42,6 +30,11 @@ def leer(nombre, carpeta=PAQUETE):
 def poblacion_corregimientos():
     """Tabla 01 con id_corregimiento como índice."""
     return leer("01_censo2023_poblacion_corregimientos.csv").set_index("id_corregimiento")
+
+
+def afectaciones():
+    """Afectaciones del sismo en Coclé (EDAN de SINAPROC) como DataFrame en formato largo."""
+    return leer("afectaciones_sinaproc_cocle.csv", ANALISIS)
 
 
 def base_larga():
@@ -70,23 +63,38 @@ def maximum_subarray(S):
     return mejor, inicio, fin
 
 
-def golpe_restante(t, golpe, meses_media_vida, memo=None):
-    """Parte del golpe que sigue presente t meses después, con memorización como fib_memo (u32).
 
-    Recurrencia: G(0) = golpe; G(t) = G(t - 1) * 0.5 ** (1 / meses_media_vida).
+def mochila_01(valores, costos, capacidad):
+    """Mochila 0/1 con memorización: el mayor valor total que cabe en `capacidad`.
+
+    Recurrencia (misma idea de `fib_memo` en la u32): mejor(i, cap) es el mayor valor usando solo
+    los elementos desde la posición i con `cap` de capacidad restante:
+    mejor(i, cap) = max(mejor(i + 1, cap), valores[i] + mejor(i + 1, cap - costos[i])).
+    Cada par (i, cap) se calcula una vez y se guarda en `memo`.
+    Los costos deben ser enteros positivos. Devuelve (mejor valor, posiciones elegidas, memo).
     """
-    if memo is None:
-        memo = {0: golpe}
-    if t in memo:
-        return memo[t]
-    memo[t] = golpe_restante(t - 1, golpe, meses_media_vida, memo) * 0.5 ** (1 / meses_media_vida)
-    return memo[t]
+    memo = {}
+
+    def mejor(i, cap):
+        if i == len(valores):
+            return 0
+        if (i, cap) not in memo:
+            sin = mejor(i + 1, cap)
+            con = valores[i] + mejor(i + 1, cap - costos[i]) if costos[i] <= cap else -1
+            memo[(i, cap)] = max(sin, con)
+        return memo[(i, cap)]
+
+    total = mejor(0, capacidad)
+    elegidos, cap = [], capacidad
+    for i in range(len(valores)):
+        if mejor(i, cap) != mejor(i + 1, cap):       # si no da lo mismo sin i, se tomó i
+            elegidos.append(i)
+            cap -= costos[i]
+    return total, elegidos, memo
 
 
-def proyectar_desempleo(linea_base, golpe, meses_media_vida, meses):
-    """Desempleo mes a mes: línea base más el golpe restante; todas las llamadas comparten la tabla memo."""
-    memo = {0: golpe}
-    return [linea_base + golpe_restante(t, golpe, meses_media_vida, memo) for t in range(meses)]
+
+
 
 
 # --- Retroceso (u33) -------------------------------------------------------------------
@@ -141,7 +149,9 @@ def a_ancho(larga):
 def a_largo(ancha):
     """Tabla ancha -> larga otra vez, sin las celdas vacías que creó el pivote."""
     larga = ancha.reset_index().melt(id_vars=list(CLAVE_LARGA), var_name="fecha", value_name="valor")
-    return larga.dropna(subset=["valor"])
+    larga = larga.dropna(subset=["valor"])
+    larga["fecha"] = larga["fecha"].infer_objects()      # melt deja object aunque las fechas sean años enteros
+    return larga
 
 
 def ordenar_larga(larga):
@@ -150,47 +160,23 @@ def ordenar_larga(larga):
     return larga[columnas].sort_values(columnas[:-1]).reset_index(drop=True)
 
 
-def eml_tidy():
-    """Tabla 03 (una columna por periodo y sexo) como datos ordenados: area, indicador, valor, periodo, sexo."""
-    ancha = leer("03_eml_condicion_actividad.csv")
-    larga = ancha.melt(id_vars=["area", "indicador"], var_name="columna", value_name="valor")
-    partes = larga["columna"].str.split("_", expand=True)
-    larga["periodo"] = pd.to_datetime(partes[0].str[-4:] + "-" + partes[0].str[:3].map(
-        {"oct": "10", "sep": "09"}), format="%Y-%m")
-    larga["sexo"] = partes[1]
-    return larga.drop(columns="columna")
 
 
 # --- Series temporales (u38, u39) ---------------------------------------------------------------
 
-def visitantes_mensuales():
-    """Tabla 11 como DataFrame mensual (visitantes y divisas) con DatetimeIndex, 2024-2025."""
-    ancha = leer("11_atp_visitantes_divisas_mensual.csv")
-    ancha["num_mes"] = ancha["mes"].map({m: i for i, m in enumerate(MESES, start=1)})
-    filas = []
-    for anio in (2024, 2025):
-        parte = pd.DataFrame({
-            "fecha": pd.to_datetime({"year": anio, "month": ancha["num_mes"], "day": 1}),
-            "visitantes": ancha[f"visitantes_{anio}"],
-            "divisas_millones": ancha[f"divisas_{anio}_millones"],
-        })
-        filas.append(parte)
-    return pd.concat(filas).set_index("fecha").sort_index()
 
 
-def pib_anual():
-    """Tabla 10 transpuesta: una fila por año (DatetimeIndex al cierre del año) y una columna por actividad."""
-    pib = leer("10_pib_cocle_actividad_2018_2024.csv").set_index("actividad").T
-    pib.index = pd.to_datetime(pib.index, format="%Y") + pd.offsets.YearEnd(0)
-    pib.index.name = "anio"
-    pib.columns.name = None
-    return pib
 
 
 def replicas():
-    """Réplicas acumuladas como Serie con DatetimeIndex."""
-    fechas = pd.to_datetime([fecha for fecha, _, _ in REPLICAS])
-    return pd.Series([valor for _, valor, _ in REPLICAS], index=fechas, name="replicas_acumuladas")
+    """Réplicas acumuladas del sismo del 9-oct-2026 como Serie con DatetimeIndex.
+
+    Lee datos/analisis/replicas_acumuladas.csv: cortes de prensa con datos del IGC-UP, sin
+    frecuencia fija. El último corte (20-nov) es aproximado según la fuente.
+    """
+    tabla = leer("replicas_acumuladas.csv", ANALISIS)
+    return pd.Series(tabla["replicas_acumuladas"].to_numpy(), index=pd.to_datetime(tabla["fecha"]),
+                     name="replicas_acumuladas")
 
 
 def indice_base_100(datos):
@@ -203,15 +189,6 @@ def variacion_pct(serie, periodos=1):
     return (serie / serie.shift(periodos) - 1) * 100
 
 
-def brecha_colombia():
-    """Cambio medio del desempleo (pp) de las ciudades afectadas y de control por trimestre móvil."""
-    geih = leer("20_colombia_geih_td_ciudades.csv", COMPARACION)
-    grupos = geih[geih["grupo"].isin(["afectada", "control"])]
-    tabla = grupos.groupby(["trimestre_movil", "grupo"])["cambio_pp"].mean().unstack()
-    tabla = tabla.loc[list(ORDEN_TRIMESTRES)]
-    tabla["brecha"] = tabla["afectada"] - tabla["control"]
-    tabla.columns.name = None
-    return tabla
 
 
 # --- Gráficos (u35, u38, u40) ---------------------------------------------------------------

@@ -1,5 +1,5 @@
 """Clases del proyecto (semana 2, unidad 21): Corregimiento, CorregimientoNuevo y Fuente."""
-from penonome.carga import PADRES_LEY_296, cargar_fuentes, cargar_poblacion, cargar_viviendas
+from penonome.carga import PADRES_LEY_296, cargar_fuentes, cargar_ipm, cargar_poblacion, cargar_viviendas
 
 
 class Corregimiento:
@@ -8,12 +8,13 @@ class Corregimiento:
     distrito = "Penonomé"  # variable de clase: la comparten todas las instancias
     total_creados = 0
 
-    def __init__(self, id_corregimiento, nombre, superficie_km2, poblacion, viviendas=None):
+    def __init__(self, id_corregimiento, nombre, superficie_km2, poblacion, viviendas=None, ipm=None):
         self.id_corregimiento = id_corregimiento
         self.nombre = nombre
         self.superficie_km2 = superficie_km2
         self.poblacion = dict(poblacion)  # {anio: personas}, solo los censos con dato
         self.viviendas = dict(viviendas or {})  # columnas de la tabla 02
+        self.ipm = dict(ipm or {})  # columnas de la tabla 03 (pobreza multidimensional, PNUD)
         Corregimiento.total_creados += 1
 
     def poblacion_en(self, anio=2023):
@@ -38,11 +39,13 @@ class Corregimiento:
         """Porcentaje de viviendas que cumplen `columna` (por ejemplo "sin_internet")."""
         return round(self.viviendas[columna] / self.viviendas["viviendas"] * 100, 1)
 
-    def tasa_desocupacion(self):
-        """Desocupados / (ocupados + desocupados) del Censo 2023, en porcentaje."""
-        ocupados = self.viviendas["ocupados"]
-        desocupados = self.viviendas["desocupados"]
-        return round(desocupados / (ocupados + desocupados) * 100, 1)
+    def tasa_analfabetismo(self):
+        """Analfabetas / población de 10 años y más del Censo 2023, en porcentaje."""
+        return round(self.viviendas["analfabeta"] / self.viviendas["pob_10mas"] * 100, 1)
+
+    def incidencia_pobreza(self):
+        """Porcentaje de personas en pobreza multidimensional (incidencia H del PNUD), o None."""
+        return self.ipm.get("incidencia_h")
 
     def __str__(self):
         return f"{self.nombre}: {self.poblacion_en(2023):,} habitantes en 2023"
@@ -59,8 +62,8 @@ class CorregimientoNuevo(Corregimiento):
     """Corregimiento creado por la Ley 296 de 2022: sin datos comparables antes de 2023."""
 
     def __init__(self, id_corregimiento, nombre, superficie_km2, poblacion, viviendas=None,
-                 padre=None):
-        super().__init__(id_corregimiento, nombre, superficie_km2, poblacion, viviendas)
+                 padre=None, ipm=None):
+        super().__init__(id_corregimiento, nombre, superficie_km2, poblacion, viviendas, ipm)
         self.padre = padre  # id del corregimiento del que se separó
 
     def crecimiento(self, desde=2010, hasta=2023):
@@ -112,8 +115,9 @@ def padre_de(id_corregimiento):
 
 
 def crear_corregimientos():
-    """Crea un objeto por corregimiento uniendo las tablas 01 y 02 por id_corregimiento."""
+    """Crea un objeto por corregimiento uniendo las tablas 01, 02 y 03 por id_corregimiento."""
     viviendas = {fila["id_corregimiento"]: fila for fila in cargar_viviendas("corregimiento")}
+    ipm = {fila["id_corregimiento"]: fila for fila in cargar_ipm()}
     corregimientos = []
     for fila in cargar_poblacion():
         clave = fila["id_corregimiento"]
@@ -125,9 +129,9 @@ def crear_corregimientos():
         datos = (clave, fila["corregimiento"], fila["superficie_km2"], poblacion, viviendas[clave])
         padre = padre_de(clave)
         if padre is None:
-            corregimientos.append(Corregimiento(*datos))
+            corregimientos.append(Corregimiento(*datos, ipm=ipm.get(clave)))
         else:
-            corregimientos.append(CorregimientoNuevo(*datos, padre=padre))
+            corregimientos.append(CorregimientoNuevo(*datos, padre=padre, ipm=ipm.get(clave)))
     return corregimientos
 
 

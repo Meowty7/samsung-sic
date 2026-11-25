@@ -43,4 +43,4 @@
 
 ## Registro de fuentes
 
-En la misma jornada se registraron en `fuentes.csv` los enlaces de los datos que faltaban: 9 del paquete de Penonomé y 21 de la comparación con Colombia, ya cotejados en `2026-11-24-paquetes-de-datos.md`. `investigacion.py validar` ahora revisa también los enlaces de cada CSV de datos.
+En la misma jornada se registraron en `fuentes.csv` los enlaces de los datos que faltaban del paquete de Penonomé, ya cotejados en `2026-11-24-paquetes-de-datos.md`. `investigacion.py validar` ahora revisa también los enlaces de cada CSV de datos.

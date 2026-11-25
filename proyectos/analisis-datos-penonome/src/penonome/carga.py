@@ -5,7 +5,7 @@ números ya convertidos. Las usan los notebooks de las semanas 1 y 2.
 """
 import csv
 
-from penonome import FUENTES, PAQUETE
+from penonome import ANALISIS, FUENTES, PAQUETE
 
 # Ley 296 de 26-abr-2022 (nota 53 del Cuadro 4 del Censo 2023):
 # corregimiento original -> corregimientos nuevos creados a partir de él.
@@ -79,28 +79,23 @@ def cargar_viviendas(nivel=None):
     return [fila for fila in filas if fila["nivel"] == nivel]
 
 
-def cargar_condicion_actividad():
-    """Tabla 03: condición de actividad de la EML (República y Coclé), oct-2024 y sep-2025."""
-    columnas = (
-        "oct2024_total", "oct2024_hombres", "oct2024_mujeres",
-        "sep2025_total", "sep2025_hombres", "sep2025_mujeres",
-    )
-    return leer_csv(PAQUETE / "03_eml_condicion_actividad.csv", numericas=columnas)
 
 
-def cargar_informalidad():
-    """Tabla 06: empleo informal no agrícola, República y Coclé."""
-    columnas = (
-        "ocupada_no_agricola", "empleo_informal", "en_empresas_formales",
-        "en_empresas_informales", "en_hogares", "pct_informal",
-    )
-    return leer_csv(PAQUETE / "06_eml_informalidad.csv", numericas=columnas)
+
+def cargar_ipm():
+    """Tabla 03: pobreza multidimensional por corregimiento (PNUD, 2023)."""
+    return leer_csv(PAQUETE / "03_pnud_ipm_corregimientos_2023.csv",
+                    numericas=("poblacion_ipm", "incidencia_h", "intensidad_a", "ipm_m0"))
 
 
-def cargar_pib():
-    """Tabla 10: PIB de Coclé por actividad, 2018 a 2024 (millones de B/.)."""
-    anios = tuple(str(anio) for anio in range(2018, 2025))
-    return leer_csv(PAQUETE / "10_pib_cocle_actividad_2018_2024.csv", numericas=anios)
+def cargar_afectaciones():
+    """Afectaciones del sismo en Coclé según la EDAN de SINAPROC (formato largo, una fila por dato)."""
+    return leer_csv(ANALISIS / "afectaciones_sinaproc_cocle.csv", numericas=("valor",))
+
+
+def cargar_registros_danos():
+    """Registros de daños por corregimiento según la prensa (no son unidades dañadas)."""
+    return leer_csv(ANALISIS / "registros_danos_corregimiento.csv", numericas=("registros_danos",))
 
 
 def cargar_base_larga():

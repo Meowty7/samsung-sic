@@ -137,10 +137,10 @@ SLD_TAIL = '</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr>
 
 
 # ---- slide content ---------------------------------------------------------------------------------------------
-# The deck sells the idea: what happened in Penonomé, what the data shows, and where to help first.
+# The deck sells the idea: what the earthquake left in Coclé, who is most exposed in Penonomé, and where to help first.
 # Every chart is produced by analisis-penonome.ipynb (documento/img/pulso-*.png).
 
-U1, U2, U3 = "Unidad 1. Penonomé antes y después", "Unidad 2. Análisis de datos", "Unidad 3. La propuesta"
+U1, U2, U3 = "Unidad 1. Penonomé antes, Coclé después", "Unidad 2. Análisis de datos", "Unidad 3. La propuesta"
 
 
 def takeaway(ids, x, y, w, lead, text, size=13):
@@ -159,14 +159,14 @@ def s_antes(ids, img):
 
 
 def s_carencias(ids, img):
-    out = [band_title(ids, U1), slide_title(ids, "Antes del sismo: carencias y de qué vive Coclé")]
-    out.append(picture(ids, img["pulso-02-carencias"], 0.49, 2.05, 4.83, 2.51, "Carencias de las viviendas"))
-    out.append(picture(ids, img["pulso-04-economia"], 5.51, 2.05, 4.83, 2.42, "PIB de Coclé por actividad"))
-    out.append(takeaway(ids, 0.49, 4.75, 4.83, "Viviendas:", "en el distrito, 41.9 % no tiene internet y 15.7 % cocina "
-                                                         "con leña, frente a 30.3 % y 6.0 % en el país."))
-    out.append(takeaway(ids, 5.51, 4.75, 4.83, "Economía:", "construcción (20 %), gobierno (16 %) e industria (13 %) "
-                                                          "sostienen el PIB; comercio y hoteles, golpeados por el sismo, "
-                                                          "suman 9 %."))
+    out = [band_title(ids, U1), slide_title(ids, "Antes del sismo: viviendas con más carencias que el país")]
+    out.append(picture(ids, img["pulso-02-carencias"], 0.49, 2.05, 6.9, 3.59, "Carencias de las viviendas"))
+    cards = [("41.9 %", "de las viviendas del distrito no tiene internet (país: 30.3 %)"),
+             ("15.7 %", "cocina con leña (país: 6.0 %)"),
+             ("9.3 %", "tiene piso de tierra (país: 5.4 %)")]
+    for k, (v, l) in enumerate(cards):
+        out.append(stat_card(ids, 7.6, 2.05 + k * 1.45, 2.74, 1.35, v, l))
+    out.append(caption(ids, 0.49, 5.8, 6.9, "Fuente: INEC, Censo 2023, Cuadro 1. Porcentajes de viviendas particulares ocupadas."))
     return out
 
 
@@ -175,8 +175,8 @@ def s_sismo(ids, img):
     out.append(picture(ids, img["pulso-05-danos"], 0.49, 2.05, 5.6, 2.69, "Viviendas afectadas en Coclé por comunicado"))
     out.append(picture(ids, img["catedral-despues"], 6.3, 2.05, 1.55, 2.06, "Catedral de Penonomé con grietas"))
     out.append(picture(ids, img["hotel-dos-continentes"], 7.98, 2.05, 2.36, 2.06, "Hotel Dos Continentes colapsado"))
-    cards = [("7.7", "magnitud del sismo, con epicentro en Azuero (USGS)"),
-             ("1,324", "viviendas afectadas en Coclé al 14 de octubre (SINAPROC)"),
+    cards = [("7.5", "magnitud según SINAPROC (7.7 según el USGS), con epicentro en Azuero"),
+             ("2,531", "viviendas evaluadas en Coclé al cierre de la EDAN, el 15 de noviembre (SINAPROC)"),
              ("1,690", "réplicas al 20 de noviembre (IGC-UP)")]
     w = 3.13
     for k, (v, l) in enumerate(cards):
@@ -184,13 +184,32 @@ def s_sismo(ids, img):
     return out
 
 
+def s_hoy(ids, img):
+    out = [band_title(ids, U1), slide_title(ids, "Cómo está Coclé hoy, a mes y medio del sismo")]
+    datos = [("439", "viviendas contratadas para reconstruir en Coclé; 67 ya en obra", "Miviot, 9 de noviembre"),
+             ("1,890", "familias de Coclé con ficha social de emergencia del MIDES", "MIDES, 6 de noviembre"),
+             ("193,000", "estudiantes de cuatro provincias sin clases presenciales; escuelas de Tulú y Toabré en demolición",
+              "Meduca, 17 de noviembre"),
+             ("9,693", "bolsas de alimentos del IMA entregadas en 448 comunidades de Coclé", "COE Nacional, 25 de noviembre"),
+             ("0", "albergues activos y personas albergadas en Coclé",
+              "COE Nacional, 25 de noviembre"),
+             ("113,409", "habitantes proyectados en el distrito de Penonomé para 2026", "INEC, proyecciones revisadas")]
+    w, h, gx, gy = 3.13, 1.95, 0.23, 0.2
+    for k, (v, d, f) in enumerate(datos):
+        r, c = divmod(k, 3)
+        out.append(shape(ids, 0.49 + c * (w + gx), 2.05 + r * (h + gy), w, h, CARD,
+                         [para([run(v, 26, True, BLUE)], space_after=4), para([run(d, 13, False, INK)], space_after=4, line=104),
+                          para([run(f, 10, False, INK2)])], anchor="t", inset=0.16, adj=8000, name="Hoy"))
+    return out
+
+
 def s_flujo(ids, img):
     out = [band_title(ids, U2), slide_title(ids, "Del dato oficial a la decisión: el flujo de análisis")]
-    pasos = [("Fuentes", "INEC, SINAPROC, ATP y DANE: 181 fuentes registradas y verificadas."),
+    pasos = [("Fuentes", "INEC, PNUD y SINAPROC: cada cifra con su enlace y verificada."),
              ("Carga", "Censo, pobreza y daños unidos en una tabla de los 16 corregimientos."),
-             ("Limpieza", "Sumas de control: los 16 corregimientos dan 104,326 habitantes."),
-             ("Análisis", "Desempleo 2019-2026, daños del sismo y comparación con Colombia."),
-             ("Gráficas", "Nueve gráficas, del Censo al ranking final."),
+             ("Limpieza", "Sumas de control: los corregimientos dan 104,326 y los daños suman 2,531 viviendas."),
+             ("Análisis", "Carencias, niveles de daño y personas vulnerables en viviendas dañadas."),
+             ("Gráficas", "Siete gráficas, del Censo al ranking final."),
              ("Decisión", "Índice de prioridad que ordena los 16 corregimientos.")]
     w, h, gx, gy = 3.13, 1.95, 0.23, 0.25
     for k, (titulo, hecho) in enumerate(pasos):
@@ -202,14 +221,29 @@ def s_flujo(ids, img):
     return out
 
 
-def s_futuro(ids, img):
-    out = [band_title(ids, U2), slide_title(ids, "¿Qué viene para el empleo de Coclé?")]
-    out.append(picture(ids, img["pulso-07-colombia"], 0.49, 2.05, 4.83, 2.32, "Colombia: ciudades afectadas y de control"))
-    out.append(picture(ids, img["pulso-08-escenarios"], 5.51, 2.05, 4.83, 2.32, "Escenarios de desempleo de Coclé"))
-    out.append(takeaway(ids, 0.49, 4.55, 4.83, "La lección de Colombia:", "tras su sismo de agosto, el desempleo de las "
-                        "ciudades afectadas pasó de estar 1.9 puntos mejor que el de control a 0.2 puntos peor."))
-    out.append(takeaway(ids, 5.51, 4.55, 4.83, "Para Coclé:", "con la línea base de 5.5 %, el desempleo de 2026 podría "
-                        "estar entre 6.3 % y 8.5 %. Son escenarios, no pronósticos, hasta la encuesta de 2027."))
+def s_danos(ids, img):
+    out = [band_title(ids, U2), slide_title(ids, "Qué dejó el sismo en las viviendas de Coclé")]
+    out.append(picture(ids, img["pulso-03-nivel-dano"], 0.49, 2.05, 6.9, 3.31, "Viviendas evaluadas por nivel de daño"))
+    cards = [("561", "viviendas con daño total o moderado: 22.2 % de las evaluadas"),
+             ("10,199", "personas viven en las viviendas evaluadas"),
+             ("40 y 2", "escuelas y hospitales afectados en Coclé")]
+    for k, (v, l) in enumerate(cards):
+        out.append(stat_card(ids, 7.6, 2.05 + k * 1.45, 2.74, 1.35, v, l))
+    out.append(takeaway(ids, 0.49, 5.5, 6.9, "Ojo:", "son las viviendas que SINAPROC evaluó, no todas las de la provincia, "
+                        "y «daño total» no significa colapso.", size=12))
+    return out
+
+
+def s_vulnerables(ids, img):
+    out = [band_title(ids, U2), slide_title(ids, "Quiénes viven en las casas más dañadas")]
+    out.append(picture(ids, img["pulso-04-vulnerables"], 0.49, 2.05, 6.9, 3.31, "Personas con discapacidad según el daño de su vivienda"))
+    cards = [("91", "personas con discapacidad en casas con daño total o moderado"),
+             ("9", "mujeres embarazadas en casas con daño total o moderado"),
+             ("17.0 %", "de las personas evaluadas son adultos mayores; 22.6 % son niños o recién nacidos")]
+    for k, (v, l) in enumerate(cards):
+        out.append(stat_card(ids, 7.6, 2.05 + k * 1.45, 2.74, 1.35, v, l))
+    out.append(takeaway(ids, 0.49, 5.5, 6.9, "Salud pública:", "son las primeras personas que necesitan seguimiento médico "
+                        "y un lugar seguro.", size=12))
     return out
 
 
@@ -229,7 +263,7 @@ def s_propuesta(ids, img):
              ("Fase 2: alta", "27,511 personas",
               "Río Indio, Candelario Ovalle, Boca de Tucué, Toabré, Pajonal y Las Minas."),
              ("Fase 3: la cabecera", "64,036 personas",
-              "Reactivar comercio, mercado, hospital y patrimonio en el sur, donde está el empleo del distrito.")]
+              "Reabrir escuelas, mercado, hospital y servicios del centro, donde se concentró el daño a edificios públicos.")]
     w, gap = 3.13, 0.23
     for k, (titulo, gente, detalle) in enumerate(fases):
         out.append(shape(ids, 0.49 + k * (w + gap), 2.1, w, 3.9, CARD,
@@ -246,12 +280,12 @@ def s_como(ids, img):
     cols = [(0.49, 2.55, "Problema"), (3.1, 4.35, "Qué hacer"), (7.51, 2.83, "Con quién")]
     filas = [("Viviendas precarias y dañadas", "Evaluar y reparar primero en la fase 1: piso, techo y estructura.",
               "Miviot, SINAPROC"),
+             ("Personas vulnerables en casas dañadas", "Seguimiento médico y lugar seguro para las 91 personas con "
+              "discapacidad y las 9 embarazadas en casas con daño grave.", "MINSA, SENADIS, MIDES"),
              ("Sin agua, luz ni internet", "Reconexión prioritaria y puntos de internet en escuelas y casas comunales.",
               "IDAAN, ASEP, municipio"),
-             ("Empleo golpeado e informal", "Crédito para mipymes (B/.310 millones) y contratar mano de obra local en la "
-              "reconstrucción.", "Banconal, MICI, Mitradel"),
-             ("Sin datos de daños por corregimiento", "Levantar la ficha social de emergencia casa por casa y "
-              "actualizar el índice.", "MIDES, municipio")]
+             ("Sin datos de daños por corregimiento", "Pedir a SINAPROC la evaluación por corregimiento y actualizar "
+              "el índice.", "SINAPROC, MIDES, municipio")]
     y0, rh = 2.05, 0.9
     for x, w, head in cols:
         out.append(shape(ids, x, y0, w, 0.45, BLUE, [para([run(head, 14, True, WHITE)])], prst="rect", inset=0.12,
@@ -265,13 +299,13 @@ def s_como(ids, img):
 
 
 def s_proyeccion(ids, img):
-    out = [band_title(ids, U3), slide_title(ids, "Cómo se proyecta")]
+    out = [band_title(ids, U3), slide_title(ids, "Cómo se da seguimiento")]
     etapas = [("0 a 3 meses", "Validar el índice en campo con el municipio y SINAPROC, y atender la fase 1.",
-               "Viviendas evaluadas y familias atendidas por corregimiento"),
-              ("3 a 12 meses", "Fase 2 y reactivación de la cabecera; tablero mensual con datos nuevos.",
-               "Asegurados de la CSS en Coclé y crédito colocado"),
-              ("2027 a 2030", "Medir con la encuesta de 2027 y repetir el análisis cada año.",
-               "Desempleo de Coclé de vuelta a 5.5 %")]
+               "Viviendas reparadas y personas vulnerables con seguimiento"),
+              ("3 a 12 meses", "Fase 2 y reapertura de servicios en la cabecera; tablero mensual con datos nuevos.",
+               "Escuelas reabiertas y familias con ficha social atendidas"),
+              ("Siguiente medición", "Repetir el análisis con la próxima medición de pobreza por corregimiento.",
+               "Pobreza multidimensional y carencias de vivienda del norte")]
     w, gap = 3.13, 0.23
     for k, (cuando, que, mide) in enumerate(etapas):
         x = 0.49 + k * (w + gap)
@@ -291,15 +325,17 @@ def s_proyeccion(ids, img):
 def s_problema(ids, img):
     out = [band_title(ids, "Planteamiento"), slide_title(ids, "El problema y los objetivos")]
     probl = [("Penonomé, ", "capital de Coclé: 104,326 habitantes; el norte rural tiene pobreza de hasta 86 %."),
-             ("El 9 de octubre de 2026 ", "un sismo de magnitud 7.7 afectó 1,324 viviendas de Coclé, la catedral, el "
-                                         "mercado y el hospital."),
-             ("Nadie puede medir hoy el golpe: ", "la encuesta de empleo llega en 2027 y los datos están dispersos en "
-                                                 "decenas de PDF.")]
+             ("El 9 de octubre de 2026 ", "un sismo de magnitud 7.5 dejó en Coclé 561 viviendas con daño total o "
+                                         "moderado, 40 escuelas y 2 hospitales afectados."),
+             ("Los datos están dispersos: ", "el daño se publica por provincia y la pobreza por corregimiento, en "
+                                            "decenas de PDF y plataformas.")]
     ps = [para([run("El problema", 16, True, BLUE)], space_after=8)]
     ps += [para([run(a, 13, True, INK), run(b, 13, False, INK)], bullet=True, space_after=7, line=106) for a, b in probl]
     out.append(shape(ids, 0.49, 2.1, 4.81, 4.1, CARD, ps, anchor="t", inset=0.2, adj=6000, name="Problema"))
-    objs = ["Reunir y verificar los datos oficiales del distrito.", "Analizar el antes y el después del sismo.",
-            "Estimar qué puede pasar con el empleo.", "Ordenar los corregimientos por prioridad de ayuda."]
+    objs = ["Reunir y verificar los datos oficiales del distrito y del sismo.",
+            "Medir qué dejó el sismo en las viviendas de Coclé.",
+            "Identificar a las personas que necesitan atención primero.",
+            "Ordenar los corregimientos por prioridad de ayuda."]
     out.append(textbox(ids, 5.55, 2.1, 4.8, 0.45, [para([run("Objetivos", 16, True, BLUE)])]))
     for k, o in enumerate(objs):
         y = 2.7 + k * 0.85
@@ -326,72 +362,24 @@ def s_equipo(ids, img):
     return out
 
 
-def s_mina(ids, img):
-    out = [band_title(ids, U1), slide_title(ids, "2023-2026: del cierre de la mina al sismo")]
-    out.append(picture(ids, img["pulso-03-desempleo"], 0.49, 2.05, 5.4, 2.81, "Desempleo de Coclé 2019-2026"))
-    hitos = [("ago-2023", "Desempleo en 4.0 %, el mejor punto."),
-             ("nov-2023", "Cierra Cobre Panamá; la mitad de sus trabajadores eran de Coclé."),
-             ("oct-2024", "El desempleo sube a 5.7 %."),
-             ("feb-2025", "Proveedores de Coclé en riesgo de cierre; marchas en Penonomé."),
-             ("sep-2025", "Peor punto: 7.1 %, con 10,165 desocupados."),
-             ("ago-2026", "Baja a 5.5 %, con 59.5 % de informalidad.")]
-    ps = []
-    for fecha, hecho in hitos:
-        ps.append(para([run(fecha + "  ", 13, True, BLUE), run(hecho, 13, False, INK)], space_after=7, line=104))
-    out.append(textbox(ids, 6.1, 2.05, 4.24, 2.9, ps, name="Hitos"))
-    out.append(takeaway(ids, 0.49, 5.1, 4.83, "Ojo con el 5.5 %:", "la participación laboral cayó de 69.1 % a 64.0 %; "
-                        "parte de la gente dejó de buscar trabajo.", size=13))
-    out.append(takeaway(ids, 5.51, 5.1, 4.83, "La economía siguió creciendo", "(PIB +6.4 % en 2024, estimado): el golpe "
-                        "está en el empleo de los coclesanos, porque la mina está en Colón.", size=13))
-    return out
-
-
-def s_hoy(ids, img):
-    out = [band_title(ids, U1), slide_title(ids, "Cómo está Penonomé hoy, a mes y medio del sismo")]
-    datos = [("439", "viviendas contratadas para reconstruir en Coclé (B/.12.7 millones); 67 en obra", "Miviot y PanamaCompra"),
-             ("1,890", "familias de Coclé con ficha social de emergencia del MIDES", "MIDES, 6 de noviembre"),
-             ("193,000", "estudiantes de cuatro provincias sin clases presenciales; escuelas de Tulú y Toabré en demolición", "Meduca, 17 de noviembre"),
-             ("976", "coclesanos contratados por Cobre Panamá en actividades autorizadas, 248 de Penonomé", "Cobre Panamá"),
-             ("B/.351", "cuesta la canasta básica en la región de Penonomé, B/.16.57 más que hace un año", "MEF, agosto 2026"),
-             ("20-nov", "el hospital Aquilino Tejeira recupera la luz; el mercado ya volvió a su edificio", "Prensa con datos oficiales")]
-    w, h, gx, gy = 3.13, 1.95, 0.23, 0.2
-    for k, (v, d, f) in enumerate(datos):
-        r, c = divmod(k, 3)
-        out.append(shape(ids, 0.49 + c * (w + gx), 2.05 + r * (h + gy), w, h, CARD,
-                         [para([run(v, 26, True, BLUE)], space_after=4), para([run(d, 13, False, INK)], space_after=4, line=104),
-                          para([run(f, 10, False, INK2)])], anchor="t", inset=0.16, adj=8000, name="Hoy"))
-    return out
-
-
-def s_sin(ids, img):
-    out = [band_title(ids, U3), slide_title(ids, "Qué pasa si no se resuelve el problema")]
-    out.append(picture(ids, img["pulso-11-sin-intervencion"], 0.49, 2.05, 6.4, 3.2, "Desocupados con y sin intervención"))
-    cards = [("+4,300", "desocupados más en 2026 sin intervención"),
-             ("11,600", "años-persona de desempleo de más hasta 2030"),
-             ("2031", "antes de ese año no se vuelve al 5.5 %")]
-    for k, (v, l) in enumerate(cards):
-        out.append(stat_card(ids, 7.1, 2.05 + k * 1.48, 3.24, 1.38, v, l))
-    return out
-
-
-CONTENIDO = [s_problema, s_antes, s_carencias, s_mina, s_sismo, s_hoy, s_flujo, s_futuro, s_prioridad, s_sin, s_propuesta, s_como, s_proyeccion, s_equipo]
-AGENDA = [(U1, ["1.1. Dos distritos en uno", "1.2. Carencias, empleo y la mina", "1.3. El terremoto y hoy"]),
-          (U2, ["2.1. El flujo de análisis", "2.2. Lo que viene", "2.3. Dónde ayudar primero"]),
-          (U3, ["3.1. Si no se resuelve", "3.2. Ayuda por fases y cómo hacerlo", "3.3. Cómo se proyecta"])]
+CONTENIDO = [s_problema, s_antes, s_carencias, s_sismo, s_hoy, s_flujo, s_danos, s_vulnerables, s_prioridad,
+             s_propuesta, s_como, s_proyeccion, s_equipo]
+AGENDA = [(U1, ["1.1. Dos distritos en uno", "1.2. Carencias de las viviendas", "1.3. El terremoto y cómo está hoy"]),
+          (U2, ["2.1. El flujo de análisis", "2.2. Viviendas dañadas y personas vulnerables", "2.3. Dónde ayudar primero"]),
+          (U3, ["3.1. Ayuda por fases", "3.2. Cómo hacerlo", "3.3. Cómo se da seguimiento"])]
 NOTAS = [
-    "El problema: el sismo golpeó a un distrito frágil y nadie puede medir todavía el impacto. Estos son nuestros objetivos.",
+    "El problema: el sismo golpeó a una provincia con zonas muy pobres y los datos estaban dispersos. Estos son nuestros objetivos.",
     "Penonomé son dos distritos: el sur concentra a la gente y el norte, la pobreza.",
-    "Antes del sismo el distrito ya tenía más carencias que el país; la economía de Coclé depende de la construcción y el gobierno.",
-    "De 2023 a 2026 el cierre de la mina llevó el desempleo de 4.0 % a 7.1 %; la baja a 5.5 % vino con más informalidad.",
-    "El 9 de octubre el balance de viviendas afectadas se multiplicó por nueve en cuatro días.",
-    "Hoy: la reconstrucción avanza lento; la ayuda llega, pero las escuelas y el empleo siguen golpeados.",
+    "Antes del sismo el distrito ya tenía más carencias de vivienda que el país, sobre todo internet y leña.",
+    "El 9 de octubre el balance de viviendas afectadas se multiplicó por nueve en cuatro días; la evaluación cerró con 2,531 viviendas evaluadas.",
+    "Hoy: la reconstrucción avanza lento; ya no hay albergues y la ayuda alimentaria llegó a 448 comunidades.",
     "Así trabajamos los datos: de la fuente oficial a la decisión, con lo aprendido en el módulo.",
-    "Colombia muestra que el golpe al empleo llega con rezago; para Coclé planteamos tres escenarios.",
+    "De las viviendas evaluadas, 561 quedaron con daño total o moderado.",
+    "En esas casas viven 91 personas con discapacidad y 9 embarazadas: son la prioridad de salud pública.",
     "El resultado: dónde ayudar primero. Diez corregimientos del norte.",
-    "Si no hacemos nada: unos 4,300 desocupados más en 2026 y sin volver a 5.5 % antes de 2031. Por eso proponemos actuar.",
     "La propuesta: atender por fases, empezando por los cuatro corregimientos que encabezan siempre el índice.",
     "Cómo hacerlo: una acción y una institución responsable para cada problema que mostraron los datos.",
-    "Cómo se proyecta: etapas, indicadores para medir si funciona y extensión a Azuero.",
+    "Cómo se da seguimiento: etapas, indicadores para medir si funciona y extensión a Azuero.",
     "El equipo RacoonCity y el rol de cada integrante.",
 ]
 

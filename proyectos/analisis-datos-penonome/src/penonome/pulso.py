@@ -10,7 +10,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from penonome import ANALISIS, COMPARACION, PAQUETE, RAIZ
+from penonome import ANALISIS, PAQUETE, RAIZ
 
 DATOS = ANALISIS
 IMG = RAIZ / "documento" / "img"
@@ -36,24 +36,20 @@ def leer(nombre, carpeta=PAQUETE):
 def cargar_todo():
     """Every table of the main analysis in a dict, keyed by a short name."""
     viviendas = leer("02_censo2023_viviendas_caracteristicas.csv")
-    ipm = leer("23_socioeconomico_colombia_vs_cocle.csv", COMPARACION)
-    ipm = ipm[ipm["indicador"] == "ipm_corregimiento_censal"][["capital", "valor"]]
+    ipm = leer("03_pnud_ipm_corregimientos_2023.csv")[["corregimiento", "incidencia_h"]]
     return {
         "catalogo": leer("00_catalogo_corregimientos.csv"),
         "poblacion": leer("01_censo2023_poblacion_corregimientos.csv"),
         "viviendas": viviendas[viviendas["nivel"] == "corregimiento"].copy(),
         "viviendas_totales": viviendas[viviendas["nivel"] != "corregimiento"].copy(),
-        "ipm": ipm.rename(columns={"capital": "corregimiento", "valor": "ipm"}),
-        "pib": leer("10_pib_cocle_actividad_2018_2024.csv"),
-        "desempleo": leer("desempleo_cocle_2019_2026.csv", DATOS),
+        "ipm": ipm.rename(columns={"incidencia_h": "ipm"}),
         "danos": leer("danos_sinaproc_cocle.csv", DATOS),
+        "afectaciones": leer("afectaciones_sinaproc_cocle.csv", DATOS),
+        "provincias": leer("afectaciones_sinaproc_provincias.csv", DATOS),
         "registros": leer("registros_danos_corregimiento.csv", DATOS),
         "replicas": leer("replicas_acumuladas.csv", DATOS),
-        "eml_2026": leer("eml_cocle_agosto_2026.csv", DATOS),
         "poblacion_proy": leer("poblacion_proyeccion_2023_2026.csv", DATOS),
         "situacion": leer("situacion_actual_2026.csv", DATOS),
-        "geih": leer("20_colombia_geih_td_ciudades.csv", COMPARACION),
-        "escenarios": leer("30_proyeccion_cocle_escenarios.csv", COMPARACION).rename(columns={"Unnamed: 0": "anio"}),
     }
 
 
