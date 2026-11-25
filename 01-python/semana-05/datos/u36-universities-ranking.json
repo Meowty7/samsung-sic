@@ -1,0 +1,182 @@
+[
+ {
+  "ranking": 1,
+  "title": "University of Oxford",
+  "location": "United Kingdom",
+  "number students": "20,774",
+  "students staff ratio": 11.1,
+  "perc intl students": "41%",
+  "gender ratio": "46 : 54"
+ },
+ {
+  "ranking": 2,
+  "title": "Stanford University",
+  "location": "United States",
+  "number students": "16,223",
+  "students staff ratio": 7.4,
+  "perc intl students": "23%",
+  "gender ratio": "44 : 56"
+ },
+ {
+  "ranking": 3,
+  "title": "Harvard University",
+  "location": "United States",
+  "number students": "21,261",
+  "students staff ratio": 9.3,
+  "perc intl students": "25%",
+  "gender ratio": "49 : 51"
+ },
+ {
+  "ranking": 4,
+  "title": "California Institute of Technology",
+  "location": "United States",
+  "number students": "2,238",
+  "students staff ratio": 6.3,
+  "perc intl students": "33%",
+  "gender ratio": "36 : 64"
+ },
+ {
+  "ranking": 5,
+  "title": "Massachusetts Institute of Technology",
+  "location": "United States",
+  "number students": "11,276",
+  "students staff ratio": 8.4,
+  "perc intl students": "34%",
+  "gender ratio": "39 : 61"
+ },
+ {
+  "ranking": 6,
+  "title": "University of Cambridge",
+  "location": "United Kingdom",
+  "number students": "19,370",
+  "students staff ratio": 11.0,
+  "perc intl students": "38%",
+  "gender ratio": "47 : 53"
+ },
+ {
+  "ranking": 7,
+  "title": "University of California, Berkeley",
+  "location": "United States",
+  "number students": "39,918",
+  "students staff ratio": 19.8,
+  "perc intl students": "17%",
+  "gender ratio": "51 : 49"
+ },
+ {
+  "ranking": 8,
+  "title": "Yale University",
+  "location": "United States",
+  "number students": "12,910",
+  "students staff ratio": 6.0,
+  "perc intl students": "20%",
+  "gender ratio": "50 : 50"
+ },
+ {
+  "ranking": 9,
+  "title": "Princeton University",
+  "location": "United States",
+  "number students": "8,091",
+  "students staff ratio": 8.0,
+  "perc intl students": "23%",
+  "gender ratio": "46 : 54"
+ },
+ {
+  "ranking": 10,
+  "title": "The University of Chicago",
+  "location": "United States",
+  "number students": "14,292",
+  "students staff ratio": 5.9,
+  "perc intl students": "31%",
+  "gender ratio": "46 : 54"
+ },
+ {
+  "ranking": 11,
+  "title": "Imperial College London",
+  "location": "United Kingdom",
+  "number students": "17,176",
+  "students staff ratio": 11.6,
+  "perc intl students": "58%",
+  "gender ratio": "39 : 61"
+ },
+ {
+  "ranking": 12,
+  "title": "Johns Hopkins University",
+  "location": "United States",
+  "number students": "16,432",
+  "students staff ratio": 4.4,
+  "perc intl students": "27%",
+  "gender ratio": "52 : 48"
+ },
+ {
+  "ranking": 13,
+  "title": "University of Pennsylvania",
+  "location": "United States",
+  "number students": "20,771",
+  "students staff ratio": 6.4,
+  "perc intl students": "21%",
+  "gender ratio": "52 : 48"
+ },
+ {
+  "ranking": 14,
+  "title": "ETH Zurich",
+  "location": "Switzerland",
+  "number students": "19,632",
+  "students staff ratio": 13.1,
+  "perc intl students": "40%",
+  "gender ratio": "32 : 68"
+ },
+ {
+  "ranking": 15,
+  "title": "University of California, Los Angeles",
+  "location": "United States",
+  "number students": "41,673",
+  "students staff ratio": 10.0,
+  "perc intl students": "17%",
+  "gender ratio": "55 : 45"
+ },
+ {
+  "ranking": 16,
+  "title": "UCL",
+  "location": "United Kingdom",
+  "number students": "34,590",
+  "students staff ratio": 10.8,
+  "perc intl students": "55%",
+  "gender ratio": "57 : 43"
+ },
+ {
+  "ranking": 17,
+  "title": "Columbia University",
+  "location": "United States",
+  "number students": "27,384",
+  "students staff ratio": 5.7,
+  "perc intl students": "39%",
+  "gender ratio": "n/a"
+ },
+ {
+  "ranking": 18,
+  "title": "University of Toronto",
+  "location": "Canada",
+  "number students": "74,502",
+  "students staff ratio": 20.0,
+  "perc intl students": "22%",
+  "gender ratio": "59 : 41"
+ },
+ {
+  "ranking": 19,
+  "title": "Cornell University",
+  "location": "United States",
+  "number students": "23,016",
+  "students staff ratio": 10.2,
+  "perc intl students": "25%",
+  "gender ratio": "50 : 50"
+ },
+ {
+  "ranking": 20,
+  "title": "Duke University",
+  "location": "United States",
+  "number students": "15,489",
+  "students staff ratio": 4.3,
+  "perc intl students": "21%",
+  "gender ratio": "49 : 51"
+ }
+]

@@ -1,0 +1,23 @@
+[project]
+name = "analisis-datos-penonome"
+version = "0.1.0"
+description = "Pulso Penonomé: dónde ayudar primero después del terremoto de 2026 (equipo RacoonCity, SIC 2026)"
+requires-python = ">=3.14,<3.15"
+authors = [{ name = "Equipo RacoonCity" }]
+readme = "README.md"
+dependencies = [
+    "pandas (>=3.1.1,<4.0)",
+    "matplotlib (>=3.11.2,<4.0)",
+    "numpy (>=2.5.5,<3.0)",
+    "openpyxl (>=3.1.5,<4.0)",
+    "ipykernel (>=7.4.0,<8.0)",
+    "nbconvert (>=7.17.2,<8.0)",
+    "jupyterlab (>=4.6,<5.0)",
+]
+
+[tool.poetry]
+packages = [{ include = "penonome", from = "src" }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

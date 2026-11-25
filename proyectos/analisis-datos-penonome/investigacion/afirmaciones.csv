@@ -1,0 +1,21 @@
+id,seccion,afirmacion,valor,unidad,fecha_dato,fuente_id,cita_textual,pagina,veredicto,verificado_el,notas
+A001,8 / 14,Desempleo de Coclé antes del sismo,5.5,%,2026-08,F007,,Cuadro 2,confirmado,2026-11-24,
+A002,7,Informalidad no agrícola de Coclé,59.5,%,2026-08,F007,,Cuadro 7,confirmado,2026-11-24,El país: 45.8 % (Cuadro 11)
+A003,9,Viviendas afectadas en Coclé,1324,viviendas,2026-10-14,F010,,,confirmado,2026-11-24,Balance preliminar
+A004,9,Personas afectadas en Coclé,4703,personas,2026-10-14,F010,,,confirmado,2026-11-24,
+A005,11,Réplicas localizadas por el IGC-UP,1656,réplicas,2026-11-17,F030,,,confirmado,2026-11-24,
+A006,15,Asegurados activos de la CSS en Coclé,58473,personas,2024,F129,,"Cuadro 2, p. 11",confirmado,2026-11-24,
+A007,15,Caída nacional de asegurados activos,-12853,personas,2024-2025,F132,,,discrepancia,2026-11-24,El reparto por sector citado era de los empleos perdidos en Chiriquí; corregido el 24-nov
+A008,15,Ocupación hotelera nacional,55.9,%,2026-09,F146,,,confirmado,2026-11-24,Reemplaza agosto (64.0 %) como último dato
+A009,15,Hoteles dañados según la ATP,,,2026-10-14,F136,,,discrepancia,2026-11-24,Incluye El Sitio y Dos Continentes en Coclé; no 'sobre todo en Azuero'; corregido
+A010,15,Crédito para mipymes afectadas,310,millones de B/.,2026-10-22,F137,,,confirmado,2026-11-24,
+A011,15,Empresas afectadas (inventario MICI),73,empresas,2026-11-09,F087,,,confirmado,2026-11-24,De 370 contactadas
+A012,15,Ingresos tributarios del mes,467.7,millones de B/.,2026-08,F147,,,confirmado,2026-11-24,Último IFP publicado; reemplaza mayo (446.2)
+A013,12,Fecha de la nota de la Cámara de Turismo de Coclé,,,2026-10-25,,,,discrepancia,2026-11-24,El estudio decía 26-oct (aprox.); corregido
+A014,12,Fecha del comité posísmico,,,2026-10-27,,,,discrepancia,2026-11-24,El estudio decía 28-oct (aprox.); corregido
+A015,12,Ritmo de réplicas 'de 102 a 22 por día',,,2026-11-02,F113,,,no verificado,2026-11-24,La cifra no está en la nota; se reemplazó por lo que sí dice
+A016,12,Reubicación de oficinas municipales tras el sismo,,,2026-10-13,F180,,,discrepancia,2026-11-24,"Fue la alcaldía de Antón, no la de Penonomé; corregido"
+A017,12,Prohibición de cortes de luz de la ASEP,60,días,2026-11-20,F178,,,discrepancia,2026-11-24,"Abarca cuatro provincias, solo por falta de pago; resolución recurrida; corregido"
+A018,12,Formulario del MICI para comercios afectados,,,2026-11-12,,,,discrepancia,2026-11-24,"Cubre Coclé, Veraguas, Los Santos y Herrera; corregido"
+A019,12,Arrendatarios del mercado centenario,89,comerciantes,2026-10-16,F108,,,discrepancia,2026-11-24,Venden reubicados; el mercado no estaba cerrado; corregido
+A020,12,Familias refugiadas en el puesto de salud de Bajito de San Miguel,50,familias (más de),2026-10-12,F179,,,confirmado,2026-11-24,Fuente primaria TVN en lugar del agregador

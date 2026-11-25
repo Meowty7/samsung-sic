@@ -1,0 +1,151 @@
+track_name,track_artist,track_popularity,playlist_genre,danceability,energy,valence,tempo,duration_ms
+Blinding Lights,The Weeknd,98,pop,0.513,0.796,0.345,171.017,201573
+Memories,Maroon 5,98,pop,0.764,0.32,0.575,91.019,189486
+The Box,Roddy Ricch,98,rap,0.896,0.586,0.642,116.971,196653
+Tusa,KAROL G,98,pop,0.803,0.715,0.574,101.085,200960
+Don't Start Now,Dua Lipa,97,pop,0.794,0.793,0.677,123.941,183290
+Falling,Trevor Daniel,97,pop,0.784,0.43,0.236,127.087,159382
+everything i wanted,Billie Eilish,97,pop,0.704,0.225,0.243,120.006,245426
+RITMO (Bad Boys For Life),The Black Eyed Peas,96,pop,0.721,0.716,0.667,104.994,221714
+Yummy,Justin Bieber,95,pop,0.662,0.519,0.495,145.841,210427
+bad guy,Billie Eilish,95,pop,0.701,0.425,0.562,135.128,194088
+HIGHEST IN THE ROOM,Travis Scott,94,pop,0.598,0.427,0.0605,76.469,175721
+My Oh My (feat. DaBaby),Camila Cabello,94,pop,0.724,0.491,0.383,105.046,170746
+Ride It,Regard,94,pop,0.88,0.751,0.884,117.948,157606
+Someone You Loved,Lewis Capaldi,94,pop,0.501,0.405,0.446,109.891,182161
+hot girl bummer,blackbear,94,pop,0.778,0.559,0.678,129.989,185093
+BOP,DaBaby,93,rap,0.769,0.787,0.836,126.77,159715
+China,Anuel AA,93,pop,0.786,0.808,0.609,105.027,301714
+Heartless,The Weeknd,93,pop,0.531,0.75,0.198,169.954,200080
+Life Is Good (feat. Drake),Future,93,rap,0.676,0.609,0.508,142.037,237735
+Lose You To Love Me,Selena Gomez,93,pop,0.505,0.34,0.0916,101.993,206459
+Señorita,Shawn Mendes,93,pop,0.759,0.54,0.75,116.947,190960
+Vete,Bad Bunny,93,rap,0.886,0.672,0.526,91.976,192024
+Bandit (with YoungBoy Never Broke Again),Juice WRLD,92,pop,0.474,0.631,0.425,180.051,189323
+Dance Monkey,Tones and I,92,pop,0.824,0.588,0.513,98.027,209438
+Fantasias,Rauw Alejandro,92,pop,0.879,0.703,0.788,94.004,199711
+No Idea,Don Toliver,92,rap,0.656,0.614,0.35,128.038,153750
+"10,000 Hours (with Justin Bieber)",Dan + Shay,91,pop,0.654,0.63,0.43,89.991,167693
+Adore You,Harry Styles,91,pop,0.676,0.771,0.569,99.048,207133
+Ayy Macarena,Tyga,91,pop,0.816,0.63,0.715,96.493,131607
+Futsal Shuffle 2020,Lil Uzi Vert,91,rap,0.881,0.457,0.296,136.97,198913
+Hola - Remix,Dalex,91,latin,0.654,0.672,0.343,181.857,249520
+How Do You Sleep?,Sam Smith,91,pop,0.477,0.682,0.345,110.567,202205
+LA CANCIÓN,J Balvin,91,pop,0.754,0.646,0.429,176.089,242573
+Lalala,Y2K,91,pop,0.843,0.391,0.496,129.972,160627
+Lose Control,MEDUZA,91,pop,0.598,0.526,0.529,123.935,168387
+South of the Border (feat. Camila Cabello & Cardi B),Ed Sheeran,91,pop,0.857,0.621,0.668,97.986,204467
+7 rings,Ariana Grande,90,pop,0.778,0.317,0.327,140.048,178627
+Adicto (with Anuel AA & Ozuna),Tainy,90,pop,0.734,0.836,0.623,80.002,270741
+All I Want for Christmas Is You,Mariah Carey,90,r&b,0.335,0.625,0.346,150.277,241107
+Ballin' (with Roddy Ricch),Mustard,90,rap,0.809,0.545,0.244,97.008,180435
+Before You Go,Lewis Capaldi,90,pop,0.459,0.575,0.183,111.881,215107
+Callaita,Bad Bunny,90,pop,0.61,0.624,0.244,176.169,250534
+Goodbyes (feat. Young Thug),Post Malone,90,latin,0.548,0.653,0.163,150.068,174853
+Old Town Road - Remix,Lil Nas X,90,pop,0.878,0.619,0.639,136.041,157067
+Que Tire Pa Lante,Daddy Yankee,90,pop,0.658,0.901,0.708,93.979,210520
+Ransom,Lil Tecca,90,pop,0.745,0.642,0.226,179.974,131240
+Suicidal,YNW Melly,90,rap,0.736,0.369,0.235,140.005,222997
+Trampoline (with ZAYN),SHAED,90,pop,0.619,0.459,0.498,126.803,184280
+Watermelon Sugar,Harry Styles,90,pop,0.548,0.816,0.557,95.39,174000
+Aventura,Lunay,89,rap,0.729,0.726,0.876,92.025,217130
+Good as Hell (feat. Ariana Grande) - Remix,Lizzo,89,pop,0.668,0.892,0.478,95.927,159011
+HIGHEST IN THE ROOM (feat. ROSALÍA & Lil Baby) - REMIX,Travis Scott,89,rap,0.559,0.491,0.114,153.131,244874
+Happier,Marshmello,89,pop,0.687,0.792,0.671,100.015,214290
+Yellow Hearts,Ant Saunders,89,pop,0.865,0.438,0.695,129.038,223258
+lovely (with Khalid),Billie Eilish,89,r&b,0.351,0.296,0.12,115.284,200186
+Blanco,J Balvin,88,pop,0.87,0.706,0.593,100.013,145800
+Falling,Harry Styles,88,r&b,0.567,0.267,0.0592,110.011,240133
+Hate Me (with Juice WRLD),Ellie Goulding,88,pop,0.657,0.768,0.759,75.025,186223
+If The World Was Ending (feat. Julia Michaels),JP Saxe,88,pop,0.464,0.473,0.604,75.801,208687
+Indeciso,Reik,88,pop,0.738,0.748,0.896,94.949,217253
+July,Noah Cyrus,88,pop,0.708,0.186,0.321,72.541,156107
+Loco Contigo (feat. J. Balvin & Tyga),DJ Snake,88,pop,0.694,0.758,0.371,192.091,185195
+Money In The Grave (Drake ft. Rick Ross),Drake,88,rap,0.831,0.502,0.101,100.541,205427
+Quizas,Rich Music LTD,88,latin,0.727,0.815,0.677,176.075,216067
+Robbery,Juice WRLD,88,rap,0.685,0.692,0.578,159.966,240051
+SUGAR,BROCKHAMPTON,88,rap,0.453,0.538,0.516,122.973,204533
+Say So,Doja Cat,88,latin,0.787,0.673,0.786,110.962,237893
+Shallow,Lady Gaga,88,r&b,0.572,0.385,0.323,95.799,215733
+Si Te Vas,Sech,88,pop,0.732,0.644,0.554,174.1,204907
+Tutu,Camilo,88,latin,0.731,0.832,0.94,146.013,178613
+VIBEZ,DaBaby,88,rap,0.768,0.652,0.777,154.187,144935
+Without Me,Halsey,88,pop,0.752,0.488,0.533,136.041,201661
+Woah,Lil Baby,88,rap,0.882,0.602,0.43,142.959,183011
+"Yo x Ti, Tu x Mi",ROSALÍA,88,pop,0.78,0.759,0.579,91.952,201040
+rockstar (feat. 21 Savage),Post Malone,88,rap,0.585,0.52,0.129,159.801,218147
+Bellaquita - Remix,Dalex,87,latin,0.795,0.715,0.758,165.941,304733
+Better Now,Post Malone,87,pop,0.68,0.578,0.341,145.038,231267
+Con Altura,ROSALÍA,87,latin,0.882,0.689,0.746,97.963,161627
+Con Calma,Daddy Yankee,87,pop,0.737,0.86,0.656,93.989,193227
+Dancing With A Stranger (with Normani),Sam Smith,87,pop,0.741,0.52,0.347,102.998,171030
+Graveyard,Halsey,87,pop,0.667,0.583,0.187,92.043,181806
+Higher Love,Kygo,87,pop,0.693,0.678,0.404,103.952,228267
+Liar,Camila Cabello,87,pop,0.74,0.498,0.652,98.016,207039
+Nice To Meet Ya,Niall Horan,87,pop,0.591,0.841,0.392,109.034,158805
+OUT WEST (feat. Young Thug),JACKBOYS,87,rap,0.802,0.591,0.309,139.864,157712
+Psycho,Red Velvet,87,latin,0.664,0.666,0.405,139.987,210560
+SAD!,XXXTENTACION,87,rap,0.74,0.613,0.473,75.023,166606
+SICKO MODE,Travis Scott,87,pop,0.834,0.73,0.446,155.008,312820
+Sucker,Jonas Brothers,87,pop,0.842,0.734,0.952,137.958,181027
+Suge,DaBaby,87,rap,0.876,0.662,0.844,75.445,163320
+Sunflower - Spider-Man: Into the Spider-Verse,Post Malone,87,pop,0.755,0.522,0.925,89.96,157560
+Sweet but Psycho,Ava Max,87,pop,0.719,0.704,0.628,133.002,187436
+Take What You Want (feat. Ozzy Osbourne & Travis Scott),Post Malone,87,pop,0.499,0.8,0.272,139.919,229573
+Up All Night,Khalid,87,pop,0.665,0.712,0.669,93.989,157220
+bury a friend,Billie Eilish,87,pop,0.905,0.389,0.196,120.046,193143
+"thank u, next",Ariana Grande,87,pop,0.717,0.653,0.412,106.966,207320
+11 PM,Maluma,86,latin,0.777,0.712,0.68,95.692,175733
+3 Nights,Dominic Fike,86,latin,0.815,0.518,0.877,151.891,177667
+Bruises,Lewis Capaldi,86,pop,0.736,0.308,0.361,111.202,220492
+Calma - Remix,Pedro Capó,86,latin,0.826,0.773,0.761,126.899,238200
+"DJ No Pare (feat. Zion, Dalex, Lenny Tavárez) - Remix",Justin Quiles,86,latin,0.743,0.709,0.831,170.001,258600
+Get You The Moon (feat. Snøw),Kina,86,pop,0.498,0.235,0.0895,118.917,179080
+God's Plan,Drake,86,pop,0.754,0.449,0.357,77.169,198973
+High Hopes,Panic! At The Disco,86,pop,0.579,0.904,0.681,82.014,190947
+Hot (Remix) [feat. Gunna and Travis Scott],Young Thug,86,pop,0.845,0.631,0.545,111.983,279907
+Jocelyn Flores,XXXTENTACION,86,rap,0.872,0.391,0.437,134.021,119133
+Let Me Down Slowly,Alec Benjamin,86,r&b,0.652,0.557,0.483,150.073,169354
+Look At Her Now,Selena Gomez,86,pop,0.563,0.564,0.55,154.355,162596
+MIDDLE CHILD,J. Cole,86,rap,0.837,0.364,0.463,123.984,213594
+Moonlight,XXXTENTACION,86,r&b,0.921,0.537,0.711,128.009,135090
+No Me Conoce - Remix,Jhay Cortez,86,pop,0.806,0.786,0.58,91.973,309120
+Only Human,Jonas Brothers,86,latin,0.795,0.496,0.874,94.01,183000
+Otro Trago - Remix,Sech,86,rap,0.725,0.79,0.763,175.988,287773
+Pa' Olvidarme De Ella,Piso 21,86,latin,0.728,0.542,0.637,90.016,227234
+Perfect,Ed Sheeran,86,latin,0.599,0.448,0.168,95.05,263400
+QUE PRETENDES,J Balvin,86,rap,0.639,0.791,0.939,92.603,222347
+Shape of You,Ed Sheeran,86,pop,0.825,0.652,0.931,95.977,233713
+TOES (feat. Lil Baby & Moneybagg Yo),DaBaby,86,rap,0.816,0.582,0.542,160.004,136366
+Turn Me On (feat. Vula),Riton,86,pop,0.737,0.828,0.517,124.052,208474
+You Need To Calm Down,Taylor Swift,86,pop,0.771,0.671,0.714,85.026,171360
+You should be sad,Halsey,86,pop,0.591,0.585,0.324,110.94,205473
+all the good girls go to hell,Billie Eilish,86,pop,0.726,0.444,0.569,185.044,168840
+goosebumps,Travis Scott,86,pop,0.841,0.728,0.43,130.049,243837
+223's (feat. 9lokknine),YNW Melly,85,pop,0.932,0.547,0.695,94.998,176640
+All of Me,John Legend,85,pop,0.422,0.264,0.331,119.93,269560
+"Alone, Pt. II",Alan Walker,85,pop,0.67,0.668,0.608,88.033,179053
+Beautiful People (feat. Khalid),Ed Sheeran,85,pop,0.64,0.648,0.548,92.977,197867
+Boy With Luv (feat. Halsey),BTS,85,pop,0.645,0.862,0.798,119.991,229773
+Camelot,NLE Choppa,85,rap,0.787,0.713,0.762,175.041,148759
+Can We Kiss Forever?,Kina,85,latin,0.522,0.128,0.124,109.986,187932
+Candy,Doja Cat,85,pop,0.689,0.516,0.209,124.876,190920
+Closer (feat. Halsey),The Chainsmokers,85,pop,0.748,0.524,0.661,95.01,244960
+Combatchy (feat. MC Rebecca),Anitta,85,latin,0.826,0.73,0.605,150.134,157600
+Don't Call Me Up,Mabel,85,pop,0.674,0.881,0.234,98.994,178480
+Family,The Chainsmokers,85,pop,0.584,0.607,0.374,117.817,194827
+Fantasía,Ozuna,85,latin,0.695,0.719,0.781,180.074,175187
+Follow God,Kanye West,85,pop,0.529,0.9,0.434,180.291,104591
+Going Bad (feat. Drake),Meek Mill,85,pop,0.889,0.496,0.544,86.003,180522
+Lover (Remix) [feat. Shawn Mendes],Taylor Swift,85,pop,0.448,0.603,0.422,205.272,221307
+Maniac,Conan Gray,85,r&b,0.623,0.647,0.522,107.987,185787
+Mean It,Lauv,85,pop,0.746,0.45,0.336,95.998,232853
+Murder On My Mind,YNW Melly,85,rap,0.759,0.73,0.74,115.007,268434
+Never Really Over,Katy Perry,85,pop,0.77,0.882,0.385,99.991,223523
+No Guidance (feat. Drake),Chris Brown,85,latin,0.698,0.454,0.137,92.932,260640
+One Kiss (with Dua Lipa),Calvin Harris,85,pop,0.791,0.862,0.592,123.994,214847
+One Thing Right,Marshmello,85,pop,0.659,0.623,0.439,88.042,181824
+Perreo en La Luna,Rich Music LTD,85,latin,0.711,0.757,0.724,174.013,218587
+Qué Pena,Maluma,85,latin,0.635,0.661,0.858,126.15,212711
+SENTADÃO,Pedro Sampaio,85,latin,0.68,0.869,0.924,173.997,143448
+Soltera - Remix,Lunay,85,pop,0.795,0.783,0.8,92.016,266087

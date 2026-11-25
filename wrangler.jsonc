@@ -1,0 +1,13 @@
+// Despliegue del sitio en Cloudflare Workers (solo archivos estáticos, sin script).
+// `wrangler deploy` ejecuta primero build.command (construye el sitio con Jupyter Book) y luego
+// publica la carpeta _build/html. Si uv no está instalado (máquina de build de Cloudflare), se instala con pip.
+{
+  "name": "samsung-sic",
+  "compatibility_date": "2026-10-19",
+  "build": {
+    "command": "if command -v uv >/dev/null 2>&1; then UV=uv; else python3 -m pip install -q uv && UV='python3 -m uv'; fi && $UV run --frozen jupyter book build --html"
+  },
+  "assets": {
+    "directory": "./_build/html"
+  }
+}

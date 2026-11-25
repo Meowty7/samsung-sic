@@ -1,0 +1,6 @@
+# local copies of the source PDFs and files
+investigacion/descargas/
+# Samsung templates and the generated delivery files (Samsung copyright)
+presentacion/plantillas/
+presentacion/entrega/
+.venv/

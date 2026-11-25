@@ -1,0 +1,283 @@
+# Configuración del sitio (Jupyter Book 2 / MyST). Documentación: https://mystmd.org/guide/frontmatter
+# El bloque `toc` entre los marcadores lo genera herramientas/actualizar_toc.py; no editarlo a mano.
+version: 1
+project:
+  title: Samsung Innovation Campus 2026
+  description: Cuaderno de estudio del programa SIC 2026 - Python, Inteligencia Artificial e IA Generativa
+  github: https://github.com/Meowty7/samsung-sic
+  # Los notebooks no se ejecutan al construir (no se pasa --execute): se usan las salidas guardadas.
+  jupyter: false
+  exclude:
+    - .venv/**
+    - odd/**
+    - herramientas/**
+    - "**/pdfs/**"
+    - "**/.ipynb_checkpoints/**"
+    - _build/**
+    - CLAUDE.md
+    - README.md
+    - recursos/**
+  # toc:inicio
+  toc:
+    - file: 00-inicio.ipynb
+      title: "Portada"
+    - title: "Módulo Python"
+      children:
+        - title: "Semana 0 — Fundamentos de programación con Python"
+          children:
+            - file: 01-python/semana-00/semana-00.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: fundamentos"
+              children:
+                - file: 01-python/semana-00/clase-1-fundamentos/u01-pensamiento-computacional-y-entorno.ipynb
+                  title: "Unidad 1 — Programación secuencial"
+                - file: 01-python/semana-00/clase-1-fundamentos/u02-algoritmos-y-diagramas-de-flujo.ipynb
+                  title: "Unidad 2 — Planificación de la programación"
+                - file: 01-python/semana-00/clase-1-fundamentos/u03-operadores-y-tipos-de-datos.ipynb
+                  title: "Unidad 3 — Conceptos básicos de tipos de datos numéricos y operaciones aritméticas"
+                - file: 01-python/semana-00/clase-1-fundamentos/u04-variables.ipynb
+                  title: "Unidad 4 — Variables y entradas"
+            - title: "Clase 2: control de flujo"
+              children:
+                - file: 01-python/semana-00/clase-2-control-de-flujo/u05-operadores-de-comparacion-y-logicos.ipynb
+                  title: "Unidad 5 — Operaciones lógicas y de comparación"
+                - file: 01-python/semana-00/clase-2-control-de-flujo/u06-sentencia-if.ipynb
+                  title: "Unidad 6 — Declaración condicional-1: condiciones y toma de decisiones"
+                - file: 01-python/semana-00/clase-2-control-de-flujo/u07-if-else-elif.ipynb
+                  title: "Unidad 7 — Declaración condicional-2: toma de decisiones en dos direcciones y aplicación de enunciados condicionales"
+                - file: 01-python/semana-00/clase-2-control-de-flujo/u08-bucle-for.ipynb
+                  title: "Unidad 8 — Bucle-1: la sentencia for y la función range"
+                - file: 01-python/semana-00/clase-2-control-de-flujo/u09-bucle-while.ipynb
+                  title: "Unidad 9 — Bucle-2: la sentencia while, break y continue, random y bucle doble"
+            - file: 01-python/semana-00/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-00/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-00/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 1 — Secuencias de datos en Python"
+          children:
+            - file: 01-python/semana-01/semana-01.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: listas tuplas diccionarios"
+              children:
+                - file: 01-python/semana-01/clase-1-listas-tuplas-diccionarios/u10-listas-y-tuplas.ipynb
+                  title: "Unidad 10 — Tipos de datos de lista y tupla"
+                - file: 01-python/semana-01/clase-1-listas-tuplas-diccionarios/u11-diccionarios-y-json.ipynb
+                  title: "Unidad 11 — Tipos de datos del diccionario"
+                - file: 01-python/semana-01/clase-1-listas-tuplas-diccionarios/u12-iteracion-y-busqueda.ipynb
+                  title: "Unidad 12 — Tipos de datos de secuencia"
+                - file: 01-python/semana-01/clase-1-listas-tuplas-diccionarios/u13-listas-bidimensionales.ipynb
+                  title: "Unidad 13 — Listas bidimensionales"
+            - title: "Clase 2: diccionarios y conjuntos"
+              children:
+                - file: 01-python/semana-01/clase-2-diccionarios-y-conjuntos/u14-diccionarios-crud.ipynb
+                  title: "Unidad 14 — Diccionario, método 1: añadir, editar, borrar y guardar"
+                - file: 01-python/semana-01/clase-2-diccionarios-y-conjuntos/u15-diccionarios-avanzados.ipynb
+                  title: "Unidad 15 — Diccionario, método 2: fromkeys, defaultdict, diccionario doble y copia"
+                - file: 01-python/semana-01/clase-2-diccionarios-y-conjuntos/u16-conjuntos.ipynb
+                  title: "Unidad 16 — Establecer tipos de datos: conjuntos (set)"
+            - file: 01-python/semana-01/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-01/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-01/quiz-calificado.ipynb
+              title: "Quiz calificado"
+            - file: 01-python/semana-01/actividad-asincronica.ipynb
+              title: "Actividad asincrónica"
+            - file: 01-python/semana-01/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 2 — Funciones, clausuras y clases"
+          children:
+            - file: 01-python/semana-02/semana-02.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: funciones recursividad lambda"
+              children:
+                - file: 01-python/semana-02/clase-1-funciones-recursividad-lambda/u17-funciones.ipynb
+                  title: "Unidad 17 — Función"
+                - file: 01-python/semana-02/clase-1-funciones-recursividad-lambda/u18-recursividad.ipynb
+                  title: "Unidad 18 — Llamada a función de recursión"
+                - file: 01-python/semana-02/clase-1-funciones-recursividad-lambda/u19-lambda-filter-map-reduce.ipynb
+                  title: "Unidad 19 — Lambda"
+            - title: "Clase 2: ambito clausuras y clases"
+              children:
+                - file: 01-python/semana-02/clase-2-ambito-clausuras-y-clases/u20-ambito-y-clausuras.ipynb
+                  title: "Unidad 20 — Ámbito de variables y clausuras (closure)"
+                - file: 01-python/semana-02/clase-2-ambito-clausuras-y-clases/u21-clases-y-objetos.ipynb
+                  title: "Unidad 21 — Clases y objetos: programación orientada a objetos"
+            - file: 01-python/semana-02/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-02/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-02/quiz-calificado.ipynb
+              title: "Quiz calificado"
+            - file: 01-python/semana-02/actividad-asincronica.ipynb
+              title: "Actividad asincrónica"
+            - file: 01-python/semana-02/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 3 — Pilas, colas, búsqueda y tablas hash"
+          children:
+            - file: 01-python/semana-03/semana-03.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: pilas colas busqueda secuencial"
+              children:
+                - file: 01-python/semana-03/clase-1-pilas-colas-busqueda-secuencial/u22-pilas.ipynb
+                  title: "Unidad 22 — Pila"
+                - file: 01-python/semana-03/clase-1-pilas-colas-busqueda-secuencial/u23-colas.ipynb
+                  title: "Unidad 23 — Cola"
+                - file: 01-python/semana-03/clase-1-pilas-colas-busqueda-secuencial/u24-busqueda-secuencial.ipynb
+                  title: "Unidad 24 — Búsqueda secuencial"
+            - title: "Clase 2: busqueda binaria tablas hash"
+              children:
+                - file: 01-python/semana-03/clase-2-busqueda-binaria-tablas-hash/u25-busqueda-binaria.ipynb
+                  title: "Unidad 25 — Búsqueda binaria"
+                - file: 01-python/semana-03/clase-2-busqueda-binaria-tablas-hash/u26-tablas-hash.ipynb
+                  title: "Unidad 26 — Tabla hash"
+            - file: 01-python/semana-03/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-03/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-03/quiz-calificado.ipynb
+              title: "Quiz calificado"
+            - file: 01-python/semana-03/actividad-asincronica.ipynb
+              title: "Actividad asincrónica"
+            - file: 01-python/semana-03/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 4 — Ordenamiento, greedy y divide y vencerás"
+          children:
+            - file: 01-python/semana-04/semana-04.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: algoritmos de ordenamiento"
+              children:
+                - file: 01-python/semana-04/clase-1-algoritmos-de-ordenamiento/u27-burbuja-seleccion-insercion.ipynb
+                  title: "Unidad 27 — Ordenamiento por burbujas, selección e inserción"
+                - file: 01-python/semana-04/clase-1-algoritmos-de-ordenamiento/u28-ordenamiento-por-fusion.ipynb
+                  title: "Unidad 28 — Ordenamiento por fusión (merge sort)"
+                - file: 01-python/semana-04/clase-1-algoritmos-de-ordenamiento/u29-ordenamiento-rapido.ipynb
+                  title: "Unidad 29 — Ordenamiento rápido (quicksort)"
+            - title: "Clase 2: greedy divide y venceras"
+              children:
+                - file: 01-python/semana-04/clase-2-greedy-divide-y-venceras/u30-enfoque-greedy.ipynb
+                  title: "Unidad 30 — Enfoque Greedy"
+                - file: 01-python/semana-04/clase-2-greedy-divide-y-venceras/u31-divide-y-venceras.ipynb
+                  title: "Unidad 31 — Divide y vencerás (divide y conquista)"
+            - file: 01-python/semana-04/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-04/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-04/quiz-calificado.ipynb
+              title: "Quiz calificado"
+            - file: 01-python/semana-04/actividad-asincronica.ipynb
+              title: "Actividad asincrónica"
+            - file: 01-python/semana-04/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 5 — Programación dinámica, backtracking y primeros pasos con pandas"
+          children:
+            - file: 01-python/semana-05/semana-05.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: programacion dinamica y backtracking"
+              children:
+                - file: 01-python/semana-05/clase-1-programacion-dinamica-y-backtracking/u32-programacion-dinamica.ipynb
+                  title: "Unidad 32 — Programación dinámica"
+                - file: 01-python/semana-05/clase-1-programacion-dinamica-y-backtracking/u33-backtracking.ipynb
+                  title: "Unidad 33 — Retroceso (backtracking)"
+            - title: "Clase 2: modulos y pandas"
+              children:
+                - file: 01-python/semana-05/clase-2-modulos-y-pandas/u34-modulos-de-python.ipynb
+                  title: "Unidad 34 — Uso de módulos de Python"
+                - file: 01-python/semana-05/clase-2-modulos-y-pandas/u35-series-de-pandas.ipynb
+                  title: "Unidad 35 — Serie Pandas para el tratamiento de datos"
+                - file: 01-python/semana-05/clase-2-modulos-y-pandas/u36-dataframes-de-pandas.ipynb
+                  title: "Unidad 36 — Pandas DataFrame para procesamiento de datos"
+            - file: 01-python/semana-05/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-05/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-05/quiz-calificado.ipynb
+              title: "Quiz calificado"
+            - file: 01-python/semana-05/actividad-asincronica.ipynb
+              title: "Actividad asincrónica"
+            - file: 01-python/semana-05/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 6 — Datos ordenados, series temporales y mini proyectos"
+          children:
+            - file: 01-python/semana-06/semana-06.ipynb
+              title: "Índice de la semana"
+            - title: "Clase 1: ordenacion y series temporales"
+              children:
+                - file: 01-python/semana-06/clase-1-ordenacion-y-series-temporales/u37-ordenacion-de-datos.ipynb
+                  title: "Unidad 37 — Ordenación de datos"
+                - file: 01-python/semana-06/clase-1-ordenacion-y-series-temporales/u38-series-temporales.ipynb
+                  title: "Unidad 38 — Datos de series temporales"
+            - title: "Clase 2: mini proyectos"
+              children:
+                - file: 01-python/semana-06/clase-2-mini-proyectos/u39-analisis-datos-financieros.ipynb
+                  title: "Unidad 39 — Mini proyecto de análisis de datos financieros"
+                - file: 01-python/semana-06/clase-2-mini-proyectos/u40-pandemia-coronavirus.ipynb
+                  title: "Unidad 40 — Miniproyecto de análisis de la pandemia de Coronavirus en el mundo"
+            - file: 01-python/semana-06/tutoria.ipynb
+              title: "Tutoría"
+            - file: 01-python/semana-06/quiz.ipynb
+              title: "Quiz de práctica"
+            - file: 01-python/semana-06/quiz-calificado.ipynb
+              title: "Quiz calificado"
+            - file: 01-python/semana-06/actividad-asincronica.ipynb
+              title: "Actividad asincrónica"
+            - file: 01-python/semana-06/repaso.ipynb
+              title: "Repaso"
+        - title: "Semana 7 — Proyecto Python: desarrollo"
+          children:
+            - file: 01-python/semana-07/semana-07.ipynb
+              title: "Índice de la semana"
+        - title: "Semana 8 — Proyecto Python: entrega"
+          children:
+            - file: 01-python/semana-08/semana-08.ipynb
+              title: "Índice de la semana"
+    - file: glosario.ipynb
+      title: "Glosario"
+    - file: proyectos/README.md
+      title: "Proyectos"
+      children:
+        - file: proyectos/analisis-datos-penonome/README.md
+          title: "Pulso Penonomé: dónde ayudar primero después del terremoto"
+          children:
+            - file: proyectos/analisis-datos-penonome/analisis-penonome.ipynb
+              title: "Pulso Penonomé: qué pasó en Penonomé y qué dicen los datos"
+            - file: proyectos/analisis-datos-penonome/notebooks/anexo-semanas/s01-listas-diccionarios-conjuntos.ipynb
+              title: "Semana 1 — Listas, diccionarios y conjuntos aplicado a Penonomé"
+            - file: proyectos/analisis-datos-penonome/notebooks/anexo-semanas/s02-funciones-clausuras-clases.ipynb
+              title: "Semana 2 — Funciones, clausuras y clases aplicado a Penonomé"
+            - file: proyectos/analisis-datos-penonome/notebooks/anexo-semanas/s03-pilas-colas-busqueda-hash.ipynb
+              title: "Semana 3 — Pilas, colas, búsqueda y tablas hash aplicadas a Penonomé"
+            - file: proyectos/analisis-datos-penonome/notebooks/anexo-semanas/s04-ordenamiento-greedy-divide-y-venceras.ipynb
+              title: "Semana 4 — Ordenamiento, greedy y divide y vencerás aplicados a Penonomé"
+            - file: proyectos/analisis-datos-penonome/notebooks/anexo-semanas/s05-dinamica-backtracking-modulos-pandas.ipynb
+              title: "Semana 5 — Programación dinámica, retroceso, módulos y pandas aplicado a Penonomé"
+            - file: proyectos/analisis-datos-penonome/notebooks/anexo-semanas/s06-ordenacion-series-temporales.ipynb
+              title: "Semana 6 — Ordenación de datos y series temporales aplicado a Penonomé"
+            - file: proyectos/analisis-datos-penonome/documento/estudio-penonome.md
+              title: "Desempleo y economía de Penonomé (Coclé): línea de tiempo, impacto del terremoto y proyección"
+            - file: proyectos/analisis-datos-penonome/investigacion/verificaciones/2026-11-24-actualizacion.md
+              title: "Actualización con los datos más recientes (24-nov-2026)"
+            - file: proyectos/analisis-datos-penonome/investigacion/verificaciones/2026-11-24-cronologia.md
+              title: "Cotejo de la cronología completa (24-nov-2026)"
+            - file: proyectos/analisis-datos-penonome/investigacion/verificaciones/2026-11-24-documento.md
+              title: "Revisión del documento del estudio (24-nov-2026)"
+            - file: proyectos/analisis-datos-penonome/investigacion/verificaciones/2026-11-24-paquetes-de-datos.md
+              title: "Verificación de los paquetes de datos (24-nov-2026)"
+  # toc:fin
+site:
+  template: book-theme
+  title: Samsung Innovation Campus 2026
+  options:
+    # Las direcciones siguen las carpetas: /python/semana-01/quiz-calificado/
+    folders: true
+    # Texto de la barra superior (sin esto el tema muestra "Made with MyST")
+    logo_text: Samsung SIC 2026
+    # Colores, etiquetas y animaciones propias
+    style: ./estilos/sitio.css
+    # Sin favicon propio, el build estático espera ~7 min intentando bajar /favicon.ico
+    favicon: ./estilos/favicon.ico
+  parts:
+    # Reemplaza el "Made with MyST" del pie del menú lateral
+    primary_sidebar_footer: pie-menu.md

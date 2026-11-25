@@ -1,0 +1,146 @@
+/* Estilos propios del sitio (Jupyter Book 2 / MyST book-theme).
+   Se cargan con site.options.style en myst.yml. Los colores del tema son variables CSS
+   definidas en :root (modo claro) y .dark (modo oscuro). */
+
+/* ---------- Paleta ---------- */
+:root {
+  --sic-acento: #1428a0;          /* azul Samsung */
+  --sic-acento-hover: #2f4bd8;
+  --sic-acento-suave: #eef1fb;
+  --sic-borde: #dfe4f5;
+
+  --myst-color-link: var(--sic-acento);
+  --myst-color-link-hover: var(--sic-acento-hover);
+  --myst-color-link-underline: var(--sic-acento-hover);
+  --myst-color-primary: var(--sic-acento);
+  --myst-color-primary-hover: var(--sic-acento-hover);
+  --myst-color-active: var(--sic-acento);
+}
+
+.dark {
+  --sic-acento: #8fa3ff;
+  --sic-acento-hover: #b4c2ff;
+  --sic-acento-suave: rgba(143, 163, 255, 0.12);
+  --sic-borde: rgba(143, 163, 255, 0.22);
+
+  --myst-color-link: var(--sic-acento);
+  --myst-color-link-hover: var(--sic-acento-hover);
+  --myst-color-link-underline: var(--sic-acento-hover);
+  --myst-color-primary: var(--sic-acento);
+  --myst-color-active: var(--sic-acento);
+}
+
+/* ---------- Animaciones ---------- */
+@keyframes sic-entrada {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes sic-desplegar {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* El contenido entra con un fundido leve al abrir cada página */
+main article {
+  animation: sic-entrada 0.35s ease-out both;
+}
+
+/* ---------- Títulos ---------- */
+main article h1 {
+  letter-spacing: -0.01em;
+}
+
+main article h2 {
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--sic-borde);
+}
+
+main article h3 {
+  color: var(--sic-acento);
+}
+
+/* ---------- Etiquetas de estudio: Clave, Error común, Referencia, Nota sobre el PDF... ---------- */
+main article p > strong:first-child {
+  display: inline-block;
+  padding: 0.05rem 0.55rem;
+  margin-right: 0.15rem;
+  border-radius: 999px;
+  background: var(--sic-acento-suave);
+  color: var(--sic-acento);
+  font-size: 0.88em;
+  font-weight: 600;
+}
+
+/* ---------- Plegables (soluciones y respuestas) ---------- */
+.myst-dropdown {
+  border: 1px solid var(--sic-borde);
+  box-shadow: none !important;      /* plano: sin efecto de tarjeta */
+  transition: border-color 0.2s ease;
+}
+
+.myst-dropdown:hover {
+  border-color: var(--sic-acento);
+}
+
+.myst-dropdown-header {
+  transition: color 0.2s ease;
+}
+
+.myst-dropdown-header:hover {
+  color: var(--sic-acento);
+}
+
+.myst-dropdown[open] .myst-dropdown-body {
+  animation: sic-desplegar 0.25s ease-out;
+}
+
+/* ---------- Celdas de código ---------- */
+.myst-jp-stream-output {
+  border-left: 3px solid var(--sic-acento);
+  padding-left: 0.75rem !important;
+  background: var(--sic-acento-suave);
+  border-radius: 0 0.35rem 0.35rem 0;
+}
+
+/* ---------- Tablas ---------- */
+main article table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--sic-borde);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+main article thead th {
+  background: var(--sic-acento-suave);
+  color: var(--sic-acento);
+}
+
+main article tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+main article tbody tr:hover {
+  background: var(--sic-acento-suave);
+}
+
+/* ---------- Menú lateral ---------- */
+.myst-toc a {
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.myst-toc a:hover {
+  color: var(--sic-acento);
+  padding-left: 0.2rem;
+}
+
+/* ---------- Accesibilidad: sin animaciones si el sistema pide reducir movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

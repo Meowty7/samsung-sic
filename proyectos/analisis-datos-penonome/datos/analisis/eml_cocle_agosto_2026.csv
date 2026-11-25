@@ -1,0 +1,30 @@
+indicador,area,fecha,valor,unidad,fuente,url,quiebre_serie
+Población de 15 años y más,Coclé,2026-08,222190,personas,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Población económicamente activa,Coclé,2026-08,142130,personas,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Población ocupada,Coclé,2026-08,134359,personas,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Población desocupada,Coclé,2026-08,7771,personas,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de desempleo,Coclé,2026-08,5.5,%,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de desempleo,"Coclé, hombres",2026-08,3.7,%,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de desempleo,"Coclé, mujeres",2026-08,8.2,%,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de desempleo,Coclé urbana,2026-08,6.0,%,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de desempleo,Coclé rural,2026-08,5.1,%,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de desempleo abierto,Coclé,2026-08,4.4,%,"INEC, EML agosto 2026 (P), Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260930152143Cuadro%203.xlsx,si
+Tasa de participación,Coclé,2026-08,64.0,%,"INEC, EML agosto 2026 (P), Cuadro 6",https://www.inec.gob.pa/archivos/P053342420260930152400Cuadro%206.xlsx,si
+Tasa de participación,"Coclé, hombres",2026-08,77.8,%,"INEC, EML agosto 2026 (P), Cuadro 6",https://www.inec.gob.pa/archivos/P053342420260930152400Cuadro%206.xlsx,si
+Tasa de participación,"Coclé, mujeres",2026-08,50.4,%,"INEC, EML agosto 2026 (P), Cuadro 6",https://www.inec.gob.pa/archivos/P053342420260930152400Cuadro%206.xlsx,si
+Subempleo visible,Coclé,2026-08,12.4,% de ocupados,"INEC, Situación de la población ocupada ago-2026, Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260929120433Informe%20de%20la%20Situaci%C3%B3n%20de%20Poblaci%C3%B3n%20Ocupada%20-%20Agosto%202026.pdf,si
+Subempleo invisible,Coclé,2026-08,20.0,% de ocupados,"INEC, Situación de la población ocupada ago-2026, Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260929120433Informe%20de%20la%20Situaci%C3%B3n%20de%20Poblaci%C3%B3n%20Ocupada%20-%20Agosto%202026.pdf,si
+Ocupados que trabajan 40 horas o más y ganan menos del mínimo,Coclé,2026-08,43.1,%,"INEC, Situación de la población ocupada ago-2026, Cuadro 3",https://www.inec.gob.pa/archivos/P0705547520260929120433Informe%20de%20la%20Situaci%C3%B3n%20de%20Poblaci%C3%B3n%20Ocupada%20-%20Agosto%202026.pdf,si
+Ocupados: gobierno,Coclé,2026-08,15017,personas,"INEC, EML agosto 2026 (P), Cuadro 8",https://www.inec.gob.pa/archivos/P0579518620260930152443Cuadro%208.xlsx,si
+Ocupados: empresa privada,Coclé,2026-08,40620,personas,"INEC, EML agosto 2026 (P), Cuadro 8",https://www.inec.gob.pa/archivos/P0579518620260930152443Cuadro%208.xlsx,si
+Ocupados: cuenta propia,Coclé,2026-08,56686,personas,"INEC, EML agosto 2026 (P), Cuadro 8",https://www.inec.gob.pa/archivos/P0579518620260930152443Cuadro%208.xlsx,si
+Ocupados: servicio doméstico,Coclé,2026-08,9967,personas,"INEC, EML agosto 2026 (P), Cuadro 8",https://www.inec.gob.pa/archivos/P0579518620260930152443Cuadro%208.xlsx,si
+Ocupados: trabajador familiar,Coclé,2026-08,10867,personas,"INEC, EML agosto 2026 (P), Cuadro 8",https://www.inec.gob.pa/archivos/P0579518620260930152443Cuadro%208.xlsx,si
+Ocupados: patrono,Coclé,2026-08,1022,personas,"INEC, EML agosto 2026 (P), Cuadro 8",https://www.inec.gob.pa/archivos/P0579518620260930152443Cuadro%208.xlsx,si
+Ocupados: agropecuario,Coclé,2026-08,33642,personas,"INEC, EML agosto 2026 (P), Cuadro 11",https://www.inec.gob.pa/archivos/P053342420260930152615Cuadro%2011.xlsx,si
+Ocupados: construcción,Coclé,2026-08,12285,personas,"INEC, EML agosto 2026 (P), Cuadro 11",https://www.inec.gob.pa/archivos/P053342420260930152615Cuadro%2011.xlsx,si
+Ocupados: industria manufacturera,Coclé,2026-08,13523,personas,"INEC, EML agosto 2026 (P), Cuadro 11",https://www.inec.gob.pa/archivos/P053342420260930152615Cuadro%2011.xlsx,si
+Ocupados: comercio,Coclé,2026-08,18630,personas,"INEC, EML agosto 2026 (P), Cuadro 11",https://www.inec.gob.pa/archivos/P053342420260930152615Cuadro%2011.xlsx,si
+Ocupados: hoteles y restaurantes,Coclé,2026-08,9176,personas,"INEC, EML agosto 2026 (P), Cuadro 11",https://www.inec.gob.pa/archivos/P053342420260930152615Cuadro%2011.xlsx,si
+Empleo informal no agrícola,Coclé,2026-08,59408,personas,"INEC, EML agosto 2026 (P), Cuadro 26",https://www.inec.gob.pa/archivos/P053342420260930153335Cuadro%2026.xlsx,si
+Informalidad no agrícola,Coclé,2026-08,59.5,%,"INEC, EML agosto 2026 (P), Cuadro 26",https://www.inec.gob.pa/archivos/P053342420260930153335Cuadro%2026.xlsx,si
