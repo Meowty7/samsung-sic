@@ -86,7 +86,7 @@ analisis-datos-penonome/
 │                                análisis y pulso (gráficas e índice de prioridad)
 ├── notebooks/anexo-semanas/     lo aprendido en cada semana, aplicado a estos datos
 ├── documento/                   estudio completo y sus figuras (img/)
-├── investigacion/               las 113 fuentes, las cifras clave verificadas y los informes de verificación
+├── investigacion/               las 115 fuentes, las cifras clave verificadas y los informes de verificación
 ├── presentacion/                scripts que generan el PPT y el formulario de la entrega
 ├── pyproject.toml               dependencias del proyecto (Poetry)
 └── poetry.lock                  versiones exactas instaladas

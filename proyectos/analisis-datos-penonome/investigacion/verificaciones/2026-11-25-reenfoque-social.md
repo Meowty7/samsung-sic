@@ -26,6 +26,14 @@
 - El nivel «Total» de la EDAN es daño total, no el total general: lo confirma la suma de los cinco niveles.
 - SINAPROC publica la EDAN por provincia. El índice de prioridad por corregimiento sigue usando los registros de prensa solo como sí o no.
 
+## Viviendas evaluadas por distrito y corregimiento
+
+La plataforma de SINAPROC se apoya en una capa pública con un punto por vivienda evaluada (`Sismo9oct_EDAN_Conteos`). Para Coclé da los mismos totales que la ficha: 2,531 viviendas, 10,199 personas, 431 personas con discapacidad y 21 embarazadas. Con los límites del Censo 2023 se repartieron por distrito y por corregimiento de Penonomé (`investigacion/edan_por_zona.py`).
+
+- Penonomé tiene 1,066 de las 2,531 viviendas evaluadas de Coclé (42 %), 303 con daño total o moderado.
+- Los registros de prensa no ubican bien el daño: General Victoriano Lorenzo tenía 0 registros y tiene 81 viviendas evaluadas; Cañaveral, 0 y 59.
+- El reparto por corregimiento es aproximado: muchas viviendas comparten coordenada.
+
 ## Resultado
 
 Los siete cuadernos se ejecutaron completos el 25-nov-2026 y todas las llamadas a `verificar` imprimen «Correcto».
